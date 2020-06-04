@@ -100,7 +100,7 @@ module.exports = function(app) {
   })
 
   //Update event by id
-  app.update("/api/event/:id", (req, res) => {
+  app.put("/api/event/:id", (req, res) => {
     db.Event.update({
       name: req.body.name,
       location: req.body.location,
