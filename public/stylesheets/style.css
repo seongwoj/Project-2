@@ -2,3 +2,35 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
+
+
+.logo{
+  background-color: #5FDDE5;
+  color: white;
+}
+
+.navbar-brand{
+  color: white;
+  font-size: 50px;
+}
+
+ .mid-section{
+  padding-top: 200px;
+  padding-bottom: 400px;
+  text-align: center;
+  background-image: url("../images/mainphoto2.png");
+  background-size: 100%;
+}
+
+.mainfont{
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+footer{
+  background-color: lightgray;
+  /* border-style: solid;
+  border-color: #5FDDE5;
+  border-width: 5px 0 0; */
+}
