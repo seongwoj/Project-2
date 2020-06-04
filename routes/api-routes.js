@@ -50,4 +50,88 @@ module.exports = function(app) {
       });
     }
   });
+
+//
+//EVENT ROUTES
+//
+
+  app.post("/api/event", (req, res) => {
+    db.Event.create(
+      req.body
+      // title: req.body.title,
+      // description: req.body.description,
+      // category: req.body.category,
+      // location: req.body.location,
+      // time: req.body.time,
+      // UserId: req.body.organizer_id
+    )
+      .then(() => {
+        // res.redirect(307, "/api/login");
+        location.reload();
+      })
+      .catch(err => {
+        res.status(401).json(err);
+      });
+  });
+
+  //Get all events
+  app.get("/api/event", (req, res) => {
+    db.Event.findAll({}).then(results => res.json(results));
+  })
+  
+  //Get events by Category
+  app.get("/api/event/:category", (req, res) => {
+    db.Event.findAll({where: {category: req.params.category}}).then(results => res.json(results));
+  })
+
+  //Get events by Time -- Needs more specifics
+  // app.get("/api/event", (req, res) => {
+  //   db.Event.findAll({where: {time: }}).then(results => res.json(results));
+  // })
+
+  //Get events by Location
+  app.get("/api/event/:location", (req, res) => {
+    db.Event.findAll({where: {location: req.params.location}}).then(results => res.json(results));
+  })
+
+  //Get events by Organizer
+  app.get("/api/event/:organizerID", (req, res) => {
+    db.Event.findAll({where: {organizer_id: req.params.organizerID}}).then(results => res.json(results));
+  })
+
+  //Update event by id
+  app.update("/api/event/:id", (req, res) => {
+    db.Event.update({
+      name: req.body.name,
+      location: req.body.location,
+      time: req.body.time,
+      description: req.body.description,
+      category: req.body.category
+    }, {where: {id: req.params.id}})
+    .then(results => res.json(results));
+  });
+
+  //Delete event by id
+  app.delete("/api/event/:id", (req, res) => {
+    db.Event.destroy({where: {id: req.params.id}}).then(results => res.json(results));
+  })
+
+//
+//WATCHER ROUTES
+//
+
+  //Get all watchers
+  app.get("/api/watcher", (req, res) => {
+    db.Watcher.findAll().then(results => res.json(results));
+  })
+
+  //Get watchers by event id
+  app.get("/api/watcher/:eventid", (req, res) => {
+    db.Watcher.findAll({where: {EventId: req.params.EventId}}).then(results => res.json(results));
+  })
+
+  //Post new watcher
+  app.post("/api/watcher", (req, res) => {
+    db.Watcher.create(req.body).then(results => res.json(results));
+  })
 };
