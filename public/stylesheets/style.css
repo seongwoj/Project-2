@@ -5,7 +5,7 @@ form.login {
 
 
 .logo{
-  background-color: #5FDDE5;
+  background-color: #162447;
   color: white;
 }
 
@@ -23,9 +23,9 @@ form.login {
 }
 
 .mainfont{
-  color: white;
+  color:red;
   font-size: 40px;
-  font-weight: bold;
+  font-weight: 800;
 }
 
 footer{

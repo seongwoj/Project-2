@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "dayaoken889@",
-    "database": "passport_demo",
+    "database": "meetup_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },

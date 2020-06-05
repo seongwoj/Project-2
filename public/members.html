@@ -19,32 +19,38 @@
     </div>
     </div>
     </nav>
+
+    <h6>Welcome <span class="member-name"></span>
       
 <div class="create-section">
   <div class="container">
       <div class="row choices">
         <div class="col-md-6">
           <h3>Create A New Event</h3>
-          <form method action>
-            <label for="fname">Name of Event</label><br>
-            <input type="text" id="fname" name="fname"><br>
-            <label for="lname">Location</label><br>
-            <input type="text" id="lname" name="lname"><br>
+          <form id="create-event">
+            <label for="title">Name of Event</label><br>
+            <input type="text" id="title" name="title"><br>
 
-            <label for="fname">Date</label><br>
-            <input type="text" id="fname" name="fname"><br>
-            <label for="lname">Time</label><br>
-            <input type="text" id="lname" name="lname"><br>
+            <label for="location">Location</label><br>
+            <input type="text" id="location" name="location"><br>
 
-            <label for="lname">Event Description</label><br>
-            <input type="text" id="lname" name="lname"><br>
-            <label for="lname">Category</label><br>
-            <select id="event-type" name="event-type">
-              <option value="volvo">Social</option>
-              <option value="saab">Protest</option>
-              <option value="fiat">Fitness</option>
-              <option value="audi">Community Service</option>
-            </select>
+            <label for="time">Time</label><br>
+            <input type="text" id="time" name="time"><br>
+
+            <label for="description">Event Description</label><br>
+            <input type="text" id="description" name="description"><br>
+
+            <label for="category">Category</label><br>
+            <select id="category" name="category">
+              <option value="social">Social</option>
+              <option value="protest">Protest</option>
+              <option value="fitness">Fitness</option>
+              <option value="community_service">Community Service</option>
+            </select><br>
+
+            <label for="organizerID">Your Account ID</label><br>
+            <input type="text" id="organizerID" readonly><br>
+
             <input type="submit" value="Post Event">
           </form>
       </div>

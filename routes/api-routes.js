@@ -56,15 +56,14 @@ module.exports = function(app) {
 //
 
   app.post("/api/event", (req, res) => {
-    db.Event.create(
-      req.body
-      // title: req.body.title,
-      // description: req.body.description,
-      // category: req.body.category,
-      // location: req.body.location,
-      // time: req.body.time,
-      // UserId: req.body.organizer_id
-    )
+    db.Event.create({
+      title: req.body.title,
+      description: req.body.description,
+      category: req.body.category,
+      location: req.body.location,
+      time: req.body.time,
+      UserId: req.body.organizer_id
+    })
       .then(() => {
         // res.redirect(307, "/api/login");
         location.reload();
@@ -95,8 +94,8 @@ module.exports = function(app) {
   })
 
   //Get events by Organizer
-  app.get("/api/event/:organizerID", (req, res) => {
-    db.Event.findAll({where: {organizer_id: req.params.organizerID}}).then(results => res.json(results));
+  app.get("/api/event/organizer/:organizerID", (req, res) => {
+    db.Event.findAll({where: {UserId: req.params.organizerID}}).then(results => res.json(results));
   })
 
   //Update event by id
