@@ -9,7 +9,10 @@ module.exports = function(sequelize, DataTypes) {
               isEmail: true
             }
           },
-        //Preferences
+        eventDay: DataTypes.BOOLEAN,
+        eventUpdate: DataTypes.BOOLEAN,
+        eventOrganizer: DataTypes.BOOLEAN,
+        eventFuture: DataTypes.BOOLEAN
     });
 
     Watcher.associate = function(models) {
