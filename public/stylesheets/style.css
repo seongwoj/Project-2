@@ -15,15 +15,20 @@ form.login {
 }
 
  .mid-section{
-  padding-top: 200px;
-  padding-bottom: 400px;
+  padding-top: 100px;
+  padding-bottom: 500px;
   text-align: center;
-  background-image: url("../images/mainphoto2.png");
+  background-image: url("../images/group4.png");
   background-size: 100%;
 }
 
+h2{
+  margin-top:10px;
+  color:white;
+}
+
 .mainfont{
-  color:red;
+  color:white;
   font-size: 40px;
   font-weight: 800;
 }
@@ -33,4 +38,134 @@ footer{
   /* border-style: solid;
   border-color: #5FDDE5;
   border-width: 5px 0 0; */
+}
+
+/* login page styling */
+
+.login-page-body{
+  background-color: #162447  ;
+
+}
+
+.logo-login{
+  text-align: center;
+  margin-top:60px;
+  
+}
+.login-form-title{
+  text-align: center;
+  color: white;
+  margin-bottom: 25px;
+}
+
+
+.login{
+  width: 60%;
+  margin: auto;
+  border: solid 2px white;
+  border-radius: 10px;
+  padding: 20px;
+  color: white
+}
+
+.register-here{
+  text-align: center;
+  margin-top: 15px;
+  color: white
+}
+
+
+
+
+/* create event page styling */
+
+.members-page-body{
+background-color: #162447 ;
+}
+
+.navbar-create-event{
+  background-color: #162447;
+}
+
+.logout-text {
+  font-size: 15px;
+}
+
+.welcome {
+  color: white;
+  margin-top: 10px;
+  margin-left: 15px;
+}
+
+
+.create-section{
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.view-section-header{
+  text-align: center;
+  color: white;
+}
+
+.create-event-title{
+  margin-bottom: 30px;
+}
+
+label{
+  margin-bottom: 5px;
+}
+
+input,
+#description,
+#category {
+  margin-bottom: 20px;
+}
+
+
+.post-event-btn{
+  background-color: #162447;
+  color: white;
+  border-radius: 5px;
+}
+
+.card{
+  margin-bottom: 40px;
+}
+
+.create-section{
+background-image: url("../images/group4.png");
+  background-size: 100%;
+}
+
+
+.view-section{
+  background-color: #162447;
+  text-align: center;
+
+}
+
+.view-section button{
+  background-color: #162447;
+  color: white;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.event-title{
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.event-category{
+  font-size: 10px;
+}
+
+
+/* update event modal styling */
+
+#updatedescription,
+#updatecategory {
+  margin-bottom: 20px;
 }

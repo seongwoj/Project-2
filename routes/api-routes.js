@@ -98,14 +98,19 @@ module.exports = function(app) {
     db.Event.findAll({where: {UserId: req.params.organizerID}}).then(results => res.json(results));
   })
 
+  app.get("/api/event/id/:id", (req, res) => {
+    db.Event.findAll({where: {id: req.params.id}}).then(results => res.json(results));
+  })
+
   //Update event by id
   app.put("/api/event/:id", (req, res) => {
     db.Event.update({
-      name: req.body.name,
+      title: req.body.title,
+      description: req.body.description,
+      category: req.body.category,
       location: req.body.location,
       time: req.body.time,
-      description: req.body.description,
-      category: req.body.category
+      UserId: req.body.organizer_id
     }, {where: {id: req.params.id}})
     .then(results => res.json(results));
   });

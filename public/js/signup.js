@@ -36,7 +36,7 @@ $(document).ready(() => {
   }
 
   function handleLoginErr(err) {
-    $("#alert .msg").text(err.responseJSON);
+    $("#alert .msg").text("Account already exists");
     $("#alert").fadeIn(500);
   }
 });
