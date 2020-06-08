@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "dayaoken889@",
+    "password": "process.env.DB_PASSWORD",
     "database": "meetup_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
