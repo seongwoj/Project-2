@@ -4,13 +4,14 @@
 
 $("#search-category").on("click", function(event){
   event.preventDefault();
+  alert("clicked")
     $.ajax({
       method: "GET",
       url: "api/event/"+$("#search-category-value").val()
     }).then(function(results){
       console.log(results)
-      var pEl=$("<p>").text(results[0].title)
-      $(".events123").append(pEl)
+      var h1El=$("<h1>").text(results[0].title)
+      $("#events123").append(h1El)
       //   $("#div"+[i]).append(pEl1)
       // for(var i=0; i<results.length; i++){  
       //   pEl1=$("<p class=event-title>").text(results[i].title)
