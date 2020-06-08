@@ -50,7 +50,7 @@ footer{
 /* login page styling */
 
 .login-page-body{
-  background-color: #162447  ;
+  background-color: #40bad5  ;
 
 }
 
@@ -135,11 +135,11 @@ footer{
 /* create event page styling */
 
 .members-page-body{
-background-color: #162447 ;
+background-color: #40bad5 ;
 }
 
 .navbar-create-event{
-  background-color: #162447;
+  background-color: #40bad5;
 }
 
 .logout-text {
@@ -179,7 +179,7 @@ input,
 
 
 .post-event-btn{
-  background-color: #162447;
+  background-color: #40bad5;
   color: white;
   border-radius: 5px;
 }
@@ -195,13 +195,13 @@ background-image: url("../images/group4.png");
 
 
 .view-section{
-  background-color: #162447;
+  background-color: #40bad5;
   text-align: center;
 
 }
 
 .view-section button{
-  background-color: #162447;
+  background-color: #40bad5;
   color: white;
   border-radius: 5px;
   margin: 10px;
