@@ -93,8 +93,15 @@
         $.ajax({
           method: "GET",
           url: "/api/watcher/"+eventinterestedId,
-        }).then(function(){
-          console.log(true)
+        }).then(function(results){
+          for(var i=0; i<results.length; i++){
+            var h4El=$("<h4>")
+            h4El.text(results[i].name)
+            (".modal-body").append(h4El)
+            var h4El=$("<h4>")
+            h4El.text(results[i].email)
+            (".modal-body").append(h4El)
+          }
         });
       });
 

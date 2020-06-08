@@ -8,7 +8,7 @@ html, body{
 }
 
 .logo{
-  background-color: #162447;
+  background-color: #40bad5;
   color: white;
 }
 
@@ -18,13 +18,16 @@ html, body{
 }
 
  .mid-section{
-  padding-top: 20px;
+  padding-top: 100px;
   padding-bottom: 260px;
   text-align: center;
-  background-image: url("../images/group3.png");
-  background-size: 100%;
-  filter: brightness(85%)
+  background-image: url("../images/homepage1.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: saturation;
 }
+
 
 h2{
   margin-top:10px;
@@ -35,6 +38,7 @@ h2{
   color:white;
   font-size: 40px;
   font-weight: 900;
+  margin-bottom: 15px;
 }
 
 footer{
@@ -82,8 +86,12 @@ footer{
   float: left;
   width: 50%;
   height: 100%;
-  background-color: #162447;
   
+  background-image: url("../images/homepage1.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: saturation;
 }
 
 .column-left-content{
