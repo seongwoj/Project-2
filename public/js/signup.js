@@ -38,5 +38,10 @@ $(document).ready(() => {
   function handleLoginErr(err) {
     $("#alert .msg").text("Account already exists");
     $("#alert").fadeIn(500);
+    unhandleLoginErr();
+  }
+
+  function unhandleLoginErr(){
+    $("#alert").fadeOut(4000)
   }
 });

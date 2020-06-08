@@ -3,6 +3,9 @@ form.login {
   margin-top: 50px;
 }
 
+html, body{
+  height: 100%
+}
 
 .logo{
   background-color: #162447;
@@ -15,11 +18,12 @@ form.login {
 }
 
  .mid-section{
-  padding-top: 100px;
-  padding-bottom: 500px;
+  padding-top: 20px;
+  padding-bottom: 260px;
   text-align: center;
-  background-image: url("../images/group4.png");
+  background-image: url("../images/group3.png");
   background-size: 100%;
+  filter: brightness(85%)
 }
 
 h2{
@@ -30,14 +34,13 @@ h2{
 .mainfont{
   color:white;
   font-size: 40px;
-  font-weight: 800;
+  font-weight: 900;
 }
 
 footer{
   background-color: lightgray;
-  /* border-style: solid;
-  border-color: #5FDDE5;
-  border-width: 5px 0 0; */
+  height: 100px;
+  display: fixed
 }
 
 /* login page styling */
@@ -72,6 +75,50 @@ footer{
   text-align: center;
   margin-top: 15px;
   color: white
+}
+
+/* singup page styling */
+.column-left {
+  float: left;
+  width: 50%;
+  height: 100%;
+  background-color: #162447;
+  
+}
+
+.column-left-content{
+  text-align: center;
+  padding-top: 30%;
+  color: white;
+}
+
+.column-right{
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 100%;
+}
+.signup{
+  width: 60%;
+  margin: auto;
+  padding-top: 12%
+}
+
+.login-here{
+  text-align: center;
+  margin-top: 15px;
+}
+
+.register-form-title{
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 
