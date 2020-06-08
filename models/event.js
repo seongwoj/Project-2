@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
         description: DataTypes.STRING,
         location: DataTypes.STRING,
         category: DataTypes.STRING,
-        time: DataTypes.DATE
+        time: DataTypes.STRING
     });
 
     Event.associate = function(models) {

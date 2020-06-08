@@ -32,8 +32,18 @@ $(document).ready(() => {
         window.location.replace("/members");
         // If there's an error, log the error
       })
-      .catch(err => {
-        console.log(err);
-      });
+      .catch(handleLoginErr);
+      
+  }
+
+
+  function handleLoginErr(err) {
+    $("#alert .msg").text("Email/Password is Incorrect");
+    $("#alert").fadeIn(500);
+    unhandleLoginErr();
+  }
+
+  function unhandleLoginErr(){
+    $("#alert").fadeOut(4000)
   }
 });

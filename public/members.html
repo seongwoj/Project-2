@@ -5,74 +5,162 @@
   <title>Create Event</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link href="stylesheets/style.css" rel="stylesheet">
 </head>
 
-<body>
-  <nav class="navbar navbar-default">
+<body class="members-page-body">
+  <nav class="navbar navbar-default navbar-create-event">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand logout" href="/logout">
+      <a class="navbar-brand logo-text" href="/members">
+        Meet↑
+      </a>
+    </div>
+    <div class="navbar-header ml-auto">
+      <a class="navbar-brand logout-text" href="/logout">
         Logout
       </a>
     </div>
     </div>
     </nav>
+
+<h5 class="welcome">Welcome <span class="member-name"></span>!</h5>
       
+
+
 <div class="create-section">
   <div class="container">
-      <div class="row choices">
+      <div class="row justify-content-center">
         <div class="col-md-6">
-          <h3>Create A New Event</h3>
-          <form method action>
-            <label for="fname">Name of Event</label><br>
-            <input type="text" id="fname" name="fname"><br>
-            <label for="lname">Location</label><br>
-            <input type="text" id="lname" name="lname"><br>
+          <div class="card create-event-card">
+            <div class="card-body">
+              <h3 class="create-event-title">Create A New Event</h3>
+          <form id="create-event">
+            <label for="title">Name of Event</label><br>
+            <input type="text" id="title" placeholder="Event title" name="title" size="50"><br>
 
-            <label for="fname">Date</label><br>
-            <input type="text" id="fname" name="fname"><br>
-            <label for="lname">Time</label><br>
-            <input type="text" id="lname" name="lname"><br>
+            <label for="location">Address/City/State/Zip</label><br>
+            <input type="text" id="location" placeholder="ex. 123 Main St. Los Angeles, CA 90024" name="location" size="50"><br>
 
-            <label for="lname">Event Description</label><br>
-            <input type="text" id="lname" name="lname"><br>
-            <label for="lname">Category</label><br>
-            <select id="event-type" name="event-type">
-              <option value="volvo">Social</option>
-              <option value="saab">Protest</option>
-              <option value="fiat">Fitness</option>
-              <option value="audi">Community Service</option>
-            </select>
-            <input type="submit" value="Post Event">
+            <label for="time">Date/Time</label><br>
+            <input type="text" id="time" placeholder="ex. 06/10/2020 4:00PM" name="time" size="25"><br>
+
+            <label for="description">Event Description</label><br>
+            <textarea type="text" id="description" placeholder="Describe your event here...." name="description" rows="5" cols="50"></textarea><br>
+
+            <label for="category">Category</label><br>
+            <select id="category" name="category">
+              <option value="social">Social</option>
+              <option value="protest">Protest</option>
+              <option value="fitness">Fitness</option>
+              <option value="community_service">Community Service</option>
+            </select><br>
+
+            <label for="organizerID">Your Account ID</label><br>
+            <input type="text" id="organizerID" size="5" readonly><br>
+
+            <input type="submit" class="post-event-btn" value="Post Event">
           </form>
+            </div>
+          </div>
+          
       </div>
+    </div>
   </div>
 </div>
 
-<div class="view-section">
-  <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-         <h3>Your events</h3>
+<div class="view-section-header"></div>
+  <div class="view-section">
+    
+  </div>
+    
+ <!-- update event modal -->
+  <div class="modal fade" id="update-event-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update Your Event</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="update-event">
+            <label for="title">Name of Event</label><br>
+            <input type="text" id="updatetitle" name="title" size="50"><br>
+
+            <label for="location">Location</label><br>
+            <input type="text" id="updatelocation" name="location" size="50"><br>
+
+            <label for="time">Time</label><br>
+            <input type="text" id="updatetime" name="time" size="20"><br>
+
+            <label for="description">Event Description</label><br>
+            <textarea type="text" id="updatedescription" name="description" rows="5" cols="50"></textarea><br>
+
+            <label for="category">Category</label><br>
+            <select id="updatecategory" name="category">
+              <option class="social" value="social">Social</option>
+              <option class="protest" value="protest">Protest</option>
+              <option class= "fitness" value="fitness">Fitness</option>
+              <option class="community service" value="community service">Community Service</option>
+            </select><br>
+
+            <label for="organizerID">Your Account ID</label><br>
+            <input type="text" id="organizerupdateID" readonly><br>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary save-update">Save changes</button>
+        </div>
       </div>
+    </div>
   </div>
-  <div class="row">
-    <div class="col-md-6">
-     <h3>event1</h3>
+
+  <!-- view interested modal -->
+  <div class="modal fade" id="interested-event-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Interested Contact List</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Name</p>
+          <p>email</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary save-update">Save changes</button>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-md-6">
-   <h3>event2</h3>
-</div>
-</div>
-</div>
+
+
+
+
+
+
+
+
+
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript" src="js/members.js"></script>
+  
+
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ 
+<script type="text/javascript" src="js/members.js"></script>
 
 </body>
 

@@ -3,9 +3,12 @@ form.login {
   margin-top: 50px;
 }
 
+html, body{
+  height: 100%
+}
 
 .logo{
-  background-color: #5FDDE5;
+  background-color: #40bad5;
   color: white;
 }
 
@@ -15,22 +18,209 @@ form.login {
 }
 
  .mid-section{
-  padding-top: 200px;
-  padding-bottom: 400px;
+  padding-top: 100px;
+  padding-bottom: 260px;
   text-align: center;
-  background-image: url("../images/mainphoto2.png");
-  background-size: 100%;
+  background-image: url("../images/homepage1.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: saturation;
+}
+
+
+h2{
+  margin-top:10px;
+  color:white;
 }
 
 .mainfont{
-  color: white;
+  color:white;
   font-size: 40px;
-  font-weight: bold;
+  font-weight: 900;
+  margin-bottom: 15px;
 }
 
 footer{
   background-color: lightgray;
-  /* border-style: solid;
-  border-color: #5FDDE5;
-  border-width: 5px 0 0; */
+  height: 100px;
+  display: fixed
+}
+
+/* login page styling */
+
+.login-page-body{
+  background-color: #40bad5  ;
+
+}
+
+.logo-login{
+  text-align: center;
+  margin-top:60px;
+  
+}
+.login-form-title{
+  text-align: center;
+  color: white;
+  margin-bottom: 25px;
+}
+
+
+.login{
+  width: 60%;
+  margin: auto;
+  border: solid 2px white;
+  border-radius: 10px;
+  padding: 20px;
+  color: white
+}
+
+.register-here{
+  text-align: center;
+  margin-top: 15px;
+  color: white
+}
+
+/* singup page styling */
+.column-left {
+  float: left;
+  width: 50%;
+  height: 100%;
+  
+  background-image: url("../images/homepage1.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: saturation;
+}
+
+.column-left-content{
+  text-align: center;
+  padding-top: 30%;
+  color: white;
+}
+
+.column-right{
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 100%;
+}
+.signup{
+  width: 60%;
+  margin: auto;
+  padding-top: 12%
+}
+
+.login-here{
+  text-align: center;
+  margin-top: 15px;
+}
+
+.register-form-title{
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+
+/* create event page styling */
+
+.members-page-body{
+background-color: #40bad5 ;
+}
+
+.navbar-create-event{
+  background-color: #40bad5;
+}
+
+.logout-text {
+  font-size: 15px;
+}
+
+.welcome {
+  color: white;
+  margin-top: 10px;
+  margin-left: 15px;
+}
+
+
+.create-section{
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.view-section-header{
+  text-align: center;
+  color: white;
+}
+
+.create-event-title{
+  margin-bottom: 30px;
+}
+
+label{
+  margin-bottom: 5px;
+}
+
+input,
+#description,
+#category {
+  margin-bottom: 20px;
+}
+
+
+.post-event-btn{
+  background-color: #40bad5;
+  color: white;
+  border-radius: 5px;
+}
+
+.card{
+  margin-bottom: 40px;
+}
+
+.create-section{
+background-image: url("../images/group4.png");
+  background-size: 100%;
+}
+
+
+.view-section{
+  background-color: #40bad5;
+  text-align: center;
+
+}
+
+.view-section button{
+  background-color: #40bad5;
+  color: white;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.event-title{
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.event-category{
+  font-size: 10px;
+}
+
+
+/* update event modal styling */
+
+#updatedescription,
+#updatecategory {
+  margin-bottom: 20px;
 }
