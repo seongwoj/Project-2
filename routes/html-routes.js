@@ -24,7 +24,7 @@ module.exports = function(app) {
   app.get("/events", (req, res) => {
     // If the user already has an account send them to the members page
  
-    res.sendFile(path.join(__dirname, "../public/viewevents.html"));
+    res.sendFile(path.join(__dirname, "../public/view.html"));
   });
 
   // Here we've add our isAuthenticated middleware to this route.
