@@ -4,6 +4,7 @@
 
 $("#search-category").on("click", function(event){
   event.preventDefault();
+  alert("clicked")
     $.ajax({
       method: "GET",
       url: "api/event/"+$("#search-category-value").val()
