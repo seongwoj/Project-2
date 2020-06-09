@@ -144,7 +144,7 @@ module.exports = function(app) {
 
   //Get watchers by event id
   app.get("/api/watcher/:eventid", (req, res) => {
-    db.Watcher.findAll({where: {EventId: req.params.EventId}}).then(results => res.json(results));
+    db.Watcher.findAll({where: {EventId: req.params.eventid}}).then(results => res.json(results));
   })
 
   //Post new watcher
