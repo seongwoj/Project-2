@@ -5,7 +5,6 @@ function hideFilters(){
 $("#filter-category").css("display", "none")
 $("#filter-time").css("display", "none")
 $("#filter-location").css("display", "none")
-$("#filter-organizer").css("display", "none")
 }
 
 
@@ -20,9 +19,6 @@ if ($("#filters").val()=="Category"){
 }else if($("#filters").val()=="Location"){
   hideFilters();
   $("#filter-location").css("display", "block")
-}else if($("#filters").val()=="Organizer"){
-  hideFilters();
-  $("#filter-organizer").css("display", "block")
 }else if($("#filters").val()=="Show-All"){
   hideFilters();
   getAllEvents();
@@ -36,6 +32,7 @@ function getAllEvents(){
       method: "GET",
       url: "/api/event"
     }).then(function(results){
+      console.log(results)
       appendEvents(results)
     });
 }
@@ -62,7 +59,7 @@ $("#search-category").on("click", function(event){
       url: "api/event/time/"+$("#search-time-value").val()
     }).then(function(results){
       console.log(results) 
-      appendevents(results)  
+      appendEvents(results)  
     });
   });
 
@@ -74,7 +71,7 @@ $("#search-category").on("click", function(event){
       url: "api/event/location/"+$("#search-location-value").val()
     }).then(function(results){
       console.log(results)
-      appendevents(results)  
+      appendEvents(results)  
     });
   });
 
@@ -82,10 +79,11 @@ $("#search-category").on("click", function(event){
     $("#view-events-section").empty();
     $.ajax({
       method: "GET",
-      url: "api/event/"+$("search-organizer-value").val()
+      url: "api/event/organizer/"+$("#search-organizer-value").val()
     }).then(function(results){
       console.log(results)
-      appendevents(results)
+      console.log("good")
+      // appendEvents(results)
     });
   });
 
@@ -97,20 +95,22 @@ function appendEvents(results){
     $("#view-events-section").append(divEl1)
     divEl2=$("<div class=card>")
     $(divEl1).append(divEl2)
-    divEl3=$("<div class=card-body>")
+    divEl3=$("<div class=card-body-view>")
     divEl3.attr("id", "div"+[i])
     $(divEl2).append(divEl3)
 
     pEl1=$("<p class=event-title>").text(results[i].title)
     $("#div"+[i]).append(pEl1)
-    pEl2=$("<p>").text(results[i].time)
+    pEl2=$("<p class=event-time>").text(results[i].time)
     $("#div"+[i]).append(pEl2)
     pEl3=$("<p class=event-location>").text(results[i].location)
     $("#div"+[i]).append(pEl3)
     pEl4=$("<p class=event-description>").text(results[i].description)
     $("#div"+[i]).append(pEl4)
-    pEl5=$("<p class=event-category>").text("Category: " +results[i].category)
+    pEl5=$("<p class=event-organizer>").text("Organizer: " +results[i].User.email)
     $("#div"+[i]).append(pEl5)
+    pEl6=$("<p class=event-category>").text("Category: " +results[i].category)
+    $("#div"+[i]).append(pEl6)
     buttonEl1=$("<button type=button class=btn btn-primary data-toggle=modal data-target=#interestedModal>Interested</button>")
     buttonEl1.attr("class","interested-event-button").attr("data",eventId)
     $("#div"+[i]).append(buttonEl1)

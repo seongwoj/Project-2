@@ -15,14 +15,11 @@ module.exports = function(sequelize, DataTypes) {
             foreignKey: {
                 allowNull: false
             }
-        });
+        }); Event.hasMany(models.Watcher, {
+            onDelete: "cascade"
+          });
     }
 
-    Event.associate = function(models) {
-        Event.hasMany(models.Watcher, {
-          onDelete: "cascade"
-        });
-    }
 
     return Event;
 };
