@@ -10,27 +10,58 @@
   <link href="stylesheets/style.css" rel="stylesheet">
 </head>
 
-<body></body>
-  
+<body>
 
-<form>
-    <label for="category">Filter by Category</label><br>
-    <input type="text" id="search-category-value" name="category" size="50"><br>
+    <nav class="navbar navbar-default navbar-view-event">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="" href="">
+          Meet↑
+        </a>
+      </div>
+      <div class="navbar-header ml-auto">
+        <a class="" href="/members">
+          Create An Event
+        </a>
+      </div>
+      </div>
+      </nav>
+
+ <form id="filter">
+    <label for="category">Search Events by:</label><br>
+    <select id="filters" name="filters">
+      <option value="Category">Category</option>
+      <option value="Time">Time</option>
+      <option value="Location">Location</option>
+      <option value="Organizer">Organizer</option>
+      <option value="Show-All">Show All Events</option>
+      <input id=filter-submit type="submit" value="Submit">
+    </select>
+  </form>
+
+<form id="filter-category">
+    <label for="category-filter">Filter by Category</label><br>
+    <select id="search-category-value" name="category-filter">
+      <option value="social">Social</option>
+      <option value="protest">Protest</option>
+      <option value="fitness">Fitness</option>
+      <option value="community Service">Community Service</option>
+    </select>
     <input type="submit" id="search-category" value="Search By Category">
 </form>
-<form>
-    <label for="time">Filter by time</label><br>
-    <input type="text" id="search-time-value" name="time" size="50"><br>
+<form id="filter-time">
+    <label for="time">Filter by date</label><br>
+    <input type="text" id="search-time-value" name="time" size="20" placeholder="ex. 06-20-2020"><br>
     <input type="submit" id="search-time" value="Search By Time">
 </form>
-<form>
-    <label for="location">Filter By location</label><br>
-    <input type="text" id="search-location-value" name="location" size="50"><br>
-    <input type="submit" id="search-location" value="Search By Location">
+<form id="filter-location">
+    <label for="location">Filter By City</label><br>
+    <input type="text" id="search-location-value" name="location" size="20" placeholder="ex. Los Angeles"><br>
+    <input type="submit" id="search-location" value="Search By State">
 </form>
-<form action>
+<form id="filter-organizer">
     <label for="organizer">Filter By organizer</label><br>
-    <input type="text" id="search-organizer-value" name="organizer" size="50"><br>
+    <input type="text" id="search-organizer-value" name="organizer" size="40"><br>
     <input type="submit" id="search-organizer" value="Search By Organizer">
 </form>
 
@@ -96,32 +127,6 @@
   </div>
 </div>
 
-
-<!-- <div class="container">
-  <div class="row">
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          This is some text within a card body.
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          This is some text within a card body.
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          This is some text within a card body.
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
 
 
 

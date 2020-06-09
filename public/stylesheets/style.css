@@ -150,7 +150,11 @@ footer{
 .members-page-body{
 background-color: #40bad5 ;
 }
-
+.all-events-button{
+  background-color: white;
+  border-radius: 5px;
+  margin-left: 15px;
+}
 .navbar-create-event{
   background-color: #40bad5;
 }

@@ -1,14 +1,49 @@
+hideFilters();
+getAllEvents();
 
-//on click
-//button id search category
+function hideFilters(){
+$("#filter-category").css("display", "none")
+$("#filter-time").css("display", "none")
+$("#filter-location").css("display", "none")
+$("#filter-organizer").css("display", "none")
+}
 
+
+$("#filter").on("submit",function(event){
+  event.preventDefault();
+if ($("#filters").val()=="Category"){
+  hideFilters();
+  $("#filter-category").css("display", "block")
+}else if($("#filters").val()=="Time"){
+  hideFilters();
+  $("#filter-time").css("display", "block")
+}else if($("#filters").val()=="Location"){
+  hideFilters();
+  $("#filter-location").css("display", "block")
+}else if($("#filters").val()=="Organizer"){
+  hideFilters();
+  $("#filter-organizer").css("display", "block")
+}else if($("#filters").val()=="Show-All"){
+  hideFilters();
+  getAllEvents();
+}
+
+});
+
+
+
+
+
+
+function getAllEvents(){
+  $("#view-events-section").empty();
 $.ajax({
   method: "GET",
   url: "/api/event"
 }).then(function(results){
   appendEvents(results)
 });
-
+}
 
 
 $("#search-category").on("click", function(event){

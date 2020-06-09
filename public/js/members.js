@@ -144,5 +144,6 @@
   $("#description").val("")
   $("#category").val("")
   location.reload();
+  showMessage();
 });
 
