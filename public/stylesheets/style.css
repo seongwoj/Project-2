@@ -63,6 +63,7 @@ footer{
 
 .logo-login{
   text-align: center;
+  color: white;
   margin-top:60px;
   
 }
@@ -231,4 +232,10 @@ input,
 #updatedescription,
 #updatecategory {
   margin-bottom: 20px;
+}
+
+/* Font Style */
+
+* {
+  font-family: 'Oswald', sans-serif;
 }
