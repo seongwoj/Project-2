@@ -49,7 +49,7 @@
             <input type="text" id="title" placeholder="Event title" name="title" size="50"><br>
 
             <label for="location">Address/City/State/Zip</label><br>
-            <input type="text" id="location" placeholder="ex. 123 Main St. Los Angeles, CA 90024" name="location" size="50"><br>
+            <input type="text" id="location" placeholder="ex. 123 Main St, Los Angeles, CA 90024" name="location" size="50"><br>
 
             <label for="time">Date/Time</label><br>
             <input type="text" id="time" placeholder="ex. 06-10-2020 4:00PM" name="time" size="25"><br>
@@ -139,12 +139,10 @@
           </button>
         </div>
         <div class="modal-body">
-          <p>Name</p>
-          <p>email</p>
         </div>
         <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="sendUpdateBtn">Send Email</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary save-update">Save changes</button>
         </div>
       </div>
     </div>

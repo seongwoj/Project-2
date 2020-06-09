@@ -29,7 +29,7 @@
 
             pEl1=$("<p class=event-title>").text(results[i].title)
             $("#div"+[i]).append(pEl1)
-            pEl2=$("<p>").text(results[i].time)
+            pEl2=$("<p class=event-time>").text(results[i].time)
             $("#div"+[i]).append(pEl2)
             pEl3=$("<p class=event-location>").text(results[i].location)
             $("#div"+[i]).append(pEl3)

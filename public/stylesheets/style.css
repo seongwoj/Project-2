@@ -226,10 +226,20 @@ input,
   font-weight: bold;
 }
 
+.event-description,
 .event-category{
-  font-size: 10px;
+  font-size: 15px;
+  font-style: italic;
 }
 
+.event-time,
+.event-location{
+  font-size: 25px;
+}
+
+.register-form-title{
+  color: white;
+}
 
 /* update event modal styling */
 
