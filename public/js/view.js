@@ -32,17 +32,14 @@ if ($("#filters").val()=="Category"){
 
 
 
-
-
-
 function getAllEvents(){
   $("#view-events-section").empty();
-$.ajax({
-  method: "GET",
-  url: "/api/event"
-}).then(function(results){
-  appendEvents(results)
-});
+  $.ajax({
+      method: "GET",
+      url: "/api/event"
+    }).then(function(results){
+      appendEvents(results)
+    });
 }
 
 
@@ -115,11 +112,7 @@ function appendEvents(results){
     buttonEl1.attr("class","interested-event-button").attr("data",eventId)
     $("#div"+[i]).append(buttonEl1)
   }
-
 }
-
-
-
 
 
 

@@ -10,6 +10,7 @@
       method: "GET",
       url: "api/event/organizer/"+organizerID
       }).then(function(results){
+        console.log(results)
         var h3El=$("<h3 class='your events'>Your Events</h3>")
         $(".view-section-header").append(h3El)
           for(var i=0; i<results.length; i++){
