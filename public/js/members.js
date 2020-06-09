@@ -1,4 +1,4 @@
-
+$(document).ready(() => {
 // when page loads, ajax get request to get email from user table and display on page
   $.get("/api/user_data").then(function(data) {
      $(".member-name").text(data.email)
@@ -96,12 +96,13 @@
           url: "/api/watcher/"+eventinterestedId,
         }).then(function(results){
           for(var i=0; i<results.length; i++){
-            var h4El=$("<h4>")
+            console.log(results);
+            var h4El=$("<p>")
             h4El.text(results[i].name)
-            (".modal-body").append(h4El)
-            var h4El=$("<h4>")
+            (".view-interested-name").append(h4El)
+            var h4El=$("<p>")
             h4El.text(results[i].email)
-            (".modal-body").append(h4El)
+            (".view-interested-email").append(h4El)
           }
         });
       });
@@ -148,3 +149,24 @@
   showMessage();
 });
 
+// Email Function
+$("#sendEmailBtn").on("click", function(event){
+  event.preventDefault();
+  let emailList = "";
+  var eventinterestedId=$(this).attr("data")
+  $.ajax({
+    method: "GET",
+    url: "/api/watcher/"+eventinterestedId,
+  }).then(function(results){
+    emailList = results.email;
+    console.log(emailList); 
+  });
+  let emailSubject = $("#emailSubject").val();
+  let emailText = $("#emailText").val();
+  $.post("/api/email", {
+    to: emailList,
+    subject: emailSubject,
+    message: emailText
+  });
+});
+});
