@@ -76,7 +76,7 @@ module.exports = function(app) {
 
   //Get all events
   app.get("/api/event", (req, res) => {
-    db.Event.findAll({include: db.User}).then(results => res.json(results));
+    db.Event.findAll({}).then(results => res.json(results));
   })
   
   //Get events by Category

@@ -48,7 +48,7 @@ $("#search-category").on("click", function(event){
       method: "GET",
       url: "api/event/"+$("#search-category-value").val()
     }).then(function(results){
-      appendevents(results)
+      appendEvents(results)
           console.log(results)
       
     });
