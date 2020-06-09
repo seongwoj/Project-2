@@ -76,7 +76,7 @@ module.exports = function(app) {
 
   //Get all events
   app.get("/api/event", (req, res) => {
-    db.Event.findAll({}).then(results => res.json(results));
+    db.Event.findAll({include:[db.User]}).then(results => res.json(results));
   })
   
   //Get events by Category
@@ -106,7 +106,7 @@ module.exports = function(app) {
   }).then(results => res.json(results));
   })
 
-  //Get events by Organizer
+  //Get events by OrganizerID
   app.get("/api/event/organizer/:organizerID", (req, res) => {
     db.Event.findAll({where: {UserId: req.params.organizerID}}).then(results => res.json(results));
   })

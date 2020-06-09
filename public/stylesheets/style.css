@@ -158,6 +158,7 @@ background-color: #40bad5 ;
 }
 .navbar-create-event{
   background-color: #40bad5;
+  border-bottom: solid 2px white;
 }
 
 .logout-text {
@@ -226,6 +227,40 @@ input,
   font-weight: bold;
 }
 
+#view-card{
+  text-align: center;
+}
+
+.card-body-view{
+  text-align: center;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
+  border-radius: 5px;
+}
+
+.event-category{
+  font-size: 10px;
+  text-align: center;
+}
+
+.interested-event-button{
+  background-color: #40bad5;
+  color: white;
+  border-radius: 5px;
+  margin-bottom: 10px;;
+}
+
+/* view events page styling */
+.navbar-view-event{
+  border-bottom: solid 2px white;
+}
+
+#filter-category,
+#filter-time,
+#filter-location,
+#filter-organizer{
+  margin-left: 30px;
+}
 .event-description,
 .event-category{
   font-size: 15px;
@@ -248,8 +283,18 @@ input,
   margin-bottom: 20px;
 }
 
+#filter{
+  margin-top: 10px;
+  margin-left: 30px;
+}
 /* Font Style */
 
 * {
   font-family: 'Oswald', sans-serif;
+}
+
+.card-body{
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
+  border-radius: 5px;
 }
