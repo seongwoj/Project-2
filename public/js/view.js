@@ -30,8 +30,6 @@ if ($("#filters").val()=="Category"){
 
 });
 
-
-
 function getAllEvents(){
   $("#view-events-section").empty();
   $.ajax({
@@ -50,7 +48,9 @@ $("#search-category").on("click", function(event){
       method: "GET",
       url: "api/event/"+$("#search-category-value").val()
     }).then(function(results){
-      appendEvents(results);
+      appendevents(results)
+          console.log(results)
+      
     });
   });
 
@@ -61,7 +61,8 @@ $("#search-category").on("click", function(event){
       method: "GET",
       url: "api/event/time/"+$("#search-time-value").val()
     }).then(function(results){
-      appendEvents(results);
+      console.log(results) 
+      appendevents(results)  
     });
   });
 
@@ -72,7 +73,8 @@ $("#search-category").on("click", function(event){
       method: "GET",
       url: "api/event/location/"+$("#search-location-value").val()
     }).then(function(results){
-      appendEvents(results);
+      console.log(results)
+      appendevents(results)  
     });
   });
 
@@ -82,7 +84,8 @@ $("#search-category").on("click", function(event){
       method: "GET",
       url: "api/event/"+$("search-organizer-value").val()
     }).then(function(results){
-      appendEvents(results);
+      console.log(results)
+      appendevents(results)
     });
   });
 
@@ -113,8 +116,6 @@ function appendEvents(results){
     $("#div"+[i]).append(buttonEl1)
   }
 }
-
-
 
 // When submit button is clicked from interested modal, post request to insert new watcher to db
 $("#watcher-submit").submit(function(event){
