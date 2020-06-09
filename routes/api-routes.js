@@ -1,7 +1,8 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
 const passport = require("../config/passport");
-
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
@@ -84,13 +85,25 @@ module.exports = function(app) {
   })
 
   //Get events by Time -- Needs more specifics
-  // app.get("/api/event", (req, res) => {
-  //   db.Event.findAll({where: {time: }}).then(results => res.json(results));
-  // })
+  app.get("/api/event/time/:time", (req, res) => {
+    db.Event.findAll({
+      where: {
+          time:{
+            [Op.substring]: req.params.time
+          },
+        }
+  }).then(results => res.json(results));
+  })
 
   //Get events by Location
-  app.get("/api/event/:location", (req, res) => {
-    db.Event.findAll({where: {location: req.params.location}}).then(results => res.json(results));
+  app.get("/api/event/location/:location", (req, res) => {
+    db.Event.findAll({
+      where: {
+        location: {
+          [Op.substring]: req.params.location
+        },
+      }
+  }).then(results => res.json(results));
   })
 
   //Get events by Organizer
