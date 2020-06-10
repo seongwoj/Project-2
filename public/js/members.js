@@ -117,6 +117,7 @@
                 subject: emailSubject,
                 message: emailText
               });
+              location.reload();
             });
           });
         });
