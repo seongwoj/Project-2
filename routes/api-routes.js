@@ -82,7 +82,7 @@ module.exports = function(app) {
   
   //Get events by Category
   app.get("/api/event/:category", (req, res) => {
-    db.Event.findAll({where: {category: req.params.category}}).then(results => res.json(results));
+    db.Event.findAll({where: {category: req.params.category},include:[db.User]}).then(results => res.json(results));
   })
 
   //Get events by Time -- Needs more specifics
@@ -92,7 +92,7 @@ module.exports = function(app) {
           time:{
             [Op.substring]: req.params.time
           },
-        }
+        },include:[db.User]
   }).then(results => res.json(results));
   })
 
@@ -103,7 +103,7 @@ module.exports = function(app) {
         location: {
           [Op.substring]: req.params.location
         },
-      }
+      },include:[db.User]
   }).then(results => res.json(results));
   })
 

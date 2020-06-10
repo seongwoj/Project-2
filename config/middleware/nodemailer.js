@@ -15,7 +15,7 @@ var transporter = nodemailer.createTransport({
 module.exports.send = function(to, subject, text) {
 
     var mailOptions = {
-        from: 'Meetup <noreply.meetup.app@gmail.com>',
+        from: 'Assemble <noreply.assemble.app@gmail.com>',
         to: to,
         subject: subject,
         text: text

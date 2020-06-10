@@ -1,3 +1,4 @@
+// hide filter options when page is loaded. Load all events when page is loaded
 hideFilters();
 getAllEvents();
 
@@ -7,7 +8,7 @@ $("#filter-time").css("display", "none")
 $("#filter-location").css("display", "none")
 }
 
-
+// display filters based on filter selection
 $("#filter").on("submit",function(event){
   event.preventDefault();
 if ($("#filters").val()=="Category"){
@@ -26,6 +27,7 @@ if ($("#filters").val()=="Category"){
 
 });
 
+// get all events function
 function getAllEvents(){
   $("#view-events-section").empty();
   $.ajax({
@@ -35,7 +37,6 @@ function getAllEvents(){
       console.log(results)
       appendEvents(results)
       $(".interested-event-button").on("click", function(){
-        console.log("click")
         var eventID=$(this).attr("data")
         console.log(eventID)
         $("#watcher-submit").submit(function(event){
@@ -56,6 +57,7 @@ function getAllEvents(){
               data: newWatcher
           }).then(function(){
               console.log("Watcher updated");
+              location.reload();
           });
         });
       });
@@ -71,8 +73,31 @@ $("#search-category").on("click", function(event){
       url: "api/event/"+$("#search-category-value").val()
     }).then(function(results){
       appendEvents(results)
-          console.log(results)
-      
+      $(".interested-event-button").on("click", function(){
+        var eventID=$(this).attr("data")
+        console.log(eventID)
+        $("#watcher-submit").submit(function(event){
+          event.preventDefault();
+          var newWatcher = {
+              name: $("#formNameInput").val(),
+              email: $("#formEmailInput").val(),
+              eventDay: $("#preferenceInput1").is(":checked"),
+              eventUpdate: $("#preferenceInput2").is(":checked"),
+              eventOrganizer: $("#preferenceInput3").is(":checked"),
+              eventFuture: $("#preferenceInput4").is(":checked"),
+              EventId: eventID
+          }
+          console.log(newWatcher)
+          $.ajax({
+              method: "POST",
+              url: "/api/watcher",
+              data: newWatcher
+          }).then(function(){
+              console.log("Watcher updated");
+              location.reload();
+          });
+        });
+      });
     });
   });
 
@@ -84,7 +109,32 @@ $("#search-category").on("click", function(event){
       url: "api/event/time/"+$("#search-time-value").val()
     }).then(function(results){
       console.log(results) 
-      appendEvents(results)  
+      appendEvents(results)
+      $(".interested-event-button").on("click", function(){
+        var eventID=$(this).attr("data")
+        console.log(eventID)
+        $("#watcher-submit").submit(function(event){
+          event.preventDefault();
+          var newWatcher = {
+              name: $("#formNameInput").val(),
+              email: $("#formEmailInput").val(),
+              eventDay: $("#preferenceInput1").is(":checked"),
+              eventUpdate: $("#preferenceInput2").is(":checked"),
+              eventOrganizer: $("#preferenceInput3").is(":checked"),
+              eventFuture: $("#preferenceInput4").is(":checked"),
+              EventId: eventID
+          }
+          console.log(newWatcher)
+          $.ajax({
+              method: "POST",
+              url: "/api/watcher",
+              data: newWatcher
+          }).then(function(){
+              console.log("Watcher updated");
+              location.reload();
+          });
+        });
+      });  
     });
   });
 
@@ -96,23 +146,36 @@ $("#search-category").on("click", function(event){
       url: "api/event/location/"+$("#search-location-value").val()
     }).then(function(results){
       console.log(results)
-      appendEvents(results)  
+      appendEvents(results)
+      $(".interested-event-button").on("click", function(){
+        var eventID=$(this).attr("data")
+        console.log(eventID)
+        $("#watcher-submit").submit(function(event){
+          event.preventDefault();
+          var newWatcher = {
+              name: $("#formNameInput").val(),
+              email: $("#formEmailInput").val(),
+              eventDay: $("#preferenceInput1").is(":checked"),
+              eventUpdate: $("#preferenceInput2").is(":checked"),
+              eventOrganizer: $("#preferenceInput3").is(":checked"),
+              eventFuture: $("#preferenceInput4").is(":checked"),
+              EventId: eventID
+          }
+          console.log(newWatcher)
+          $.ajax({
+              method: "POST",
+              url: "/api/watcher",
+              data: newWatcher
+          }).then(function(){
+              console.log("Watcher updated");
+              location.reload();
+          });
+        });
+      });  
     });
   });
 
-  $("#search-organizer").on("click", function(){
-    $("#view-events-section").empty();
-    $.ajax({
-      method: "GET",
-      url: "api/event/organizer/"+$("#search-organizer-value").val()
-    }).then(function(results){
-      console.log(results)
-      console.log("good")
-      // appendEvents(results)
-    });
-  });
-
-
+// append results to page
 function appendEvents(results){
   for(var i=0; i<results.length; i++){
     eventId=results[i].id
@@ -141,3 +204,5 @@ function appendEvents(results){
     $("#div"+[i]).append(buttonEl1)
   }
 }
+
+
