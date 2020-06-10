@@ -34,6 +34,31 @@ function getAllEvents(){
     }).then(function(results){
       console.log(results)
       appendEvents(results)
+      $(".interested-event-button").on("click", function(){
+        console.log("click")
+        var eventID=$(this).attr("data")
+        console.log(eventID)
+        $("#watcher-submit").submit(function(event){
+          event.preventDefault();
+          var newWatcher = {
+              name: $("#formNameInput").val(),
+              email: $("#formEmailInput").val(),
+              eventDay: $("#preferenceInput1").is(":checked"),
+              eventUpdate: $("#preferenceInput2").is(":checked"),
+              eventOrganizer: $("#preferenceInput3").is(":checked"),
+              eventFuture: $("#preferenceInput4").is(":checked"),
+              EventId: eventID
+          }
+          console.log(newWatcher)
+          $.ajax({
+              method: "POST",
+              url: "/api/watcher",
+              data: newWatcher
+          }).then(function(){
+              console.log("Watcher updated");
+          });
+        });
+      });
     });
 }
 
@@ -116,25 +141,3 @@ function appendEvents(results){
     $("#div"+[i]).append(buttonEl1)
   }
 }
-
-// When submit button is clicked from interested modal, post request to insert new watcher to db
-$("#watcher-submit").submit(function(event){
-  event.preventDefault();
-  var newWatcher = {
-      name: $("#formNameInput").val(),
-      email: $("#formEmailInput").val(),
-      eventDay: $("#preferenceInput1").is(":checked"),
-      eventUpdate: $("#preferenceInput2").is(":checked"),
-      eventOrganizer: $("#preferenceInput3").is(":checked"),
-      eventFuture: $("#preferenceInput4").is(":checked")
-  }
-  $.ajax({
-      method: "POST",
-      url: "/api/watcher",
-      data: newWatcher
-  }).then(function(){
-      console.log("Watcher updated");
-  });
-});
-
-
