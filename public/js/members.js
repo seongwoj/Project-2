@@ -95,15 +95,6 @@
           method: "GET",
           url: "/api/watcher/"+eventinterestedId,
         }).then(function(results){
-<<<<<<< HEAD
-          console.log(results)
-          for(var i=0; i<results.length; i++){
-            var pEl=$("<p>").text(results[i].name)
-            $(".modal-body").append(pEl)
-            // pEl2=$("<p>")
-            // pEl.text(results[i].email)
-            // (".modal-body").append(pEl)
-=======
           let emailList = [];
           for(var i=0; i<results.length; i++){
             console.log(results);
@@ -114,7 +105,6 @@
             h4El.text(results[i].email)
             $(".view-interested-email").append(h4El)
             emailList.push(results[i].email)
->>>>>>> 17059adae6d84a5fc7b399ff21f2b30be2d538ec
           }
           $("#sendEmailBtn").on("click", function(event){
             event.preventDefault();

@@ -37,7 +37,6 @@ function getAllEvents(){
       console.log(results)
       appendEvents(results)
       $(".interested-event-button").on("click", function(){
-        console.log("click")
         var eventID=$(this).attr("data")
         console.log(eventID)
         $("#watcher-submit").submit(function(event){
@@ -58,15 +57,13 @@ function getAllEvents(){
               data: newWatcher
           }).then(function(){
               console.log("Watcher updated");
-<<<<<<< HEAD
               location.reload();
-=======
->>>>>>> 17059adae6d84a5fc7b399ff21f2b30be2d538ec
           });
         });
       });
     });
 }
+
 
 $("#search-category").on("click", function(event){
   $("#view-events-section").empty();
@@ -76,7 +73,31 @@ $("#search-category").on("click", function(event){
       url: "api/event/"+$("#search-category-value").val()
     }).then(function(results){
       appendEvents(results)
-          
+      $(".interested-event-button").on("click", function(){
+        var eventID=$(this).attr("data")
+        console.log(eventID)
+        $("#watcher-submit").submit(function(event){
+          event.preventDefault();
+          var newWatcher = {
+              name: $("#formNameInput").val(),
+              email: $("#formEmailInput").val(),
+              eventDay: $("#preferenceInput1").is(":checked"),
+              eventUpdate: $("#preferenceInput2").is(":checked"),
+              eventOrganizer: $("#preferenceInput3").is(":checked"),
+              eventFuture: $("#preferenceInput4").is(":checked"),
+              EventId: eventID
+          }
+          console.log(newWatcher)
+          $.ajax({
+              method: "POST",
+              url: "/api/watcher",
+              data: newWatcher
+          }).then(function(){
+              console.log("Watcher updated");
+              location.reload();
+          });
+        });
+      });
     });
   });
 
@@ -88,7 +109,32 @@ $("#search-category").on("click", function(event){
       url: "api/event/time/"+$("#search-time-value").val()
     }).then(function(results){
       console.log(results) 
-      appendEvents(results)  
+      appendEvents(results)
+      $(".interested-event-button").on("click", function(){
+        var eventID=$(this).attr("data")
+        console.log(eventID)
+        $("#watcher-submit").submit(function(event){
+          event.preventDefault();
+          var newWatcher = {
+              name: $("#formNameInput").val(),
+              email: $("#formEmailInput").val(),
+              eventDay: $("#preferenceInput1").is(":checked"),
+              eventUpdate: $("#preferenceInput2").is(":checked"),
+              eventOrganizer: $("#preferenceInput3").is(":checked"),
+              eventFuture: $("#preferenceInput4").is(":checked"),
+              EventId: eventID
+          }
+          console.log(newWatcher)
+          $.ajax({
+              method: "POST",
+              url: "/api/watcher",
+              data: newWatcher
+          }).then(function(){
+              console.log("Watcher updated");
+              location.reload();
+          });
+        });
+      });  
     });
   });
 
@@ -100,11 +146,36 @@ $("#search-category").on("click", function(event){
       url: "api/event/location/"+$("#search-location-value").val()
     }).then(function(results){
       console.log(results)
-      appendEvents(results)  
+      appendEvents(results)
+      $(".interested-event-button").on("click", function(){
+        var eventID=$(this).attr("data")
+        console.log(eventID)
+        $("#watcher-submit").submit(function(event){
+          event.preventDefault();
+          var newWatcher = {
+              name: $("#formNameInput").val(),
+              email: $("#formEmailInput").val(),
+              eventDay: $("#preferenceInput1").is(":checked"),
+              eventUpdate: $("#preferenceInput2").is(":checked"),
+              eventOrganizer: $("#preferenceInput3").is(":checked"),
+              eventFuture: $("#preferenceInput4").is(":checked"),
+              EventId: eventID
+          }
+          console.log(newWatcher)
+          $.ajax({
+              method: "POST",
+              url: "/api/watcher",
+              data: newWatcher
+          }).then(function(){
+              console.log("Watcher updated");
+              location.reload();
+          });
+        });
+      });  
     });
   });
 
-
+// append results to page
 function appendEvents(results){
   for(var i=0; i<results.length; i++){
     eventId=results[i].id
@@ -131,14 +202,7 @@ function appendEvents(results){
     buttonEl1=$("<button type=button class=btn btn-primary data-toggle=modal data-target=#interestedModal>Interested</button>")
     buttonEl1.attr("class","interested-event-button").attr("data",eventId)
     $("#div"+[i]).append(buttonEl1)
-
-    
   }
 }
-<<<<<<< HEAD
 
 
-
-
-=======
->>>>>>> 17059adae6d84a5fc7b399ff21f2b30be2d538ec
