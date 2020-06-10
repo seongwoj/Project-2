@@ -17,70 +17,69 @@
   <link href="stylesheets/style.css" rel="stylesheet">
 </head>
 
+<!-- members page nav bar -->
 <body class="members-page-body">
   <nav class="navbar navbar-default navbar-create-event">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand logo-text" href="/members">
-        <i class="fas fa-users"></i> Assemble
-      </a>
-    </div>
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand logo-text" href="/members">
+          <i class="fas fa-users"></i> Assemble
+        </a>
+      </div>
     <div class="navbar-header ml-auto">
       <a class="navbar-brand logout-text" href="/logout">
         Logout
       </a>
     </div>
-    </div>
-    </nav>
+  </div>
+</nav>
 
 <h5 class="welcome">Welcome <span class="member-name"></span>!</h5>
 <a href="/events"><button class="all-events-button">View All Events</button></a>
 
-      
+<!-- create event form     -->
 <div class="create-section">
   <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-6">
-          <div class="card create-event-card">
-            <div class="card-body">
-              <h3 class="create-event-title">Create A New Event</h3>
-          <form id="create-event">
-            <label for="title">Name of Event</label><br>
-            <input type="text" id="title" placeholder="Event title" name="title" size="50"><br>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card create-event-card">
+          <div class="card-body">
+            <h3 class="create-event-title">Create A New Event</h3>
+              <form id="create-event">
+                <label for="title">Name of Event</label><br>
+                <input type="text" id="title" placeholder="Event title" name="title" size="50"><br>
 
-            <label for="location">Address/City/State/Zip</label><br>
-            <input type="text" id="location" placeholder="ex. 123 Main St, Los Angeles, CA 90024" name="location" size="50"><br>
+                <label for="location">Address/City/State/Zip</label><br>
+                <input type="text" id="location" placeholder="ex. 123 Main St, Los Angeles, CA 90024" name="location" size="50"><br>
 
-            <label for="time">Date/Time</label><br>
-            <input type="text" id="time" placeholder="ex. 06-04-2020 4:00PM" name="time" size="25"><br>
+                <label for="time">Date/Time</label><br>
+                <input type="text" id="time" placeholder="ex. 06-04-2020 4:00PM" name="time" size="25"><br>
 
-            <label for="description">Event Description</label><br>
-            <textarea type="text" id="description" placeholder="Describe your event here...." name="description" rows="5" cols="50"></textarea><br>
+                <label for="description">Event Description</label><br>
+                <textarea type="text" id="description" placeholder="Describe your event here...." name="description" rows="5" cols="50"></textarea><br>
 
-            <label for="category">Category</label><br>
-            <select id="category" name="category">
-              <option value="social">Social</option>
-              <option value="protest">Protest</option>
-              <option value="fitness">Fitness</option>
-              <option value="community service">Community Service</option>
-            </select><br>
+                <label for="category">Category</label><br>
+                  <select id="category" name="category">
+                    <option value="social">Social</option>
+                    <option value="protest">Protest</option>
+                    <option value="fitness">Fitness</option>
+                    <option value="community service">Community Service</option>
+                  </select><br>
 
-            <label for="organizerID">Your Account ID</label><br>
-            <input type="text" id="organizerID" size="5" readonly><br>
-
-            <input type="submit" class="post-event-btn" value="Post Event">
-          </form>
+                <label for="organizerID">Your Account ID</label><br>
+                <input type="text" id="organizerID" size="5" readonly><br>
+                <input type="submit" class="post-event-btn" value="Post Event">
+              </form>
             </div>
-          </div>
-          
+          </div> 
       </div>
     </div>
   </div>
 </div>
-
+<!-- div where created events get displayed -->
 <div class="view-section-header"></div>
   <div class="view-section">
-    
+
   </div>
     
  <!-- update event modal -->

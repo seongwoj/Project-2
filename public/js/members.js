@@ -4,7 +4,7 @@
      $("#organizerID").attr("value", data.id)
       var organizerID=data.id
 
-// ajax get request to get all events by user and display on page
+// ajax get request to get all events by user via organizerID and display on page. each event gets displayed in a bootstrap card
      $.ajax({
       method: "GET",
       url: "api/event/organizer/"+organizerID
@@ -49,6 +49,7 @@
       
       // when update button is clicked for event, do an ajax get to get the data for that event and populate the form for edit
       $(".update-event").on("click", function(){
+        // capture eventID for update button clicked
         var eventupdateId=$(this).attr("data")
         $("#organizerupdateID").attr("value", organizerID)
         $(".save-update").attr("data", eventupdateId)
@@ -65,8 +66,9 @@
         });
       });
 
-      // when save changes button is clicked on update event form, do an ejax put request to insert updated event to table
+      // when save changes button is clicked on update event form, do an ajax put request to insert updated event to table
       $(".save-update").on("click", function(event){
+        // capture eventID for saved button clicked
         event.preventDefault();
         var eventupdateId=$(this).attr("data")
           var updatedEvent={
@@ -88,9 +90,11 @@
 
       //when view interested button is clicked do an ajax get request to get all the contact info of users for that event.
       $(".view-interested-btn").on("click", function(event){
+        $(".view-interested-name").empty();
+        $(".view-interested-email").empty();
         event.preventDefault();
+        // capture eventID for view interested button clicked
         var eventinterestedId=$(this).attr("data")
-        console.log(eventinterestedId);
         $.ajax({
           method: "GET",
           url: "/api/watcher/"+eventinterestedId,
@@ -106,6 +110,7 @@
             $(".view-interested-email").append(h4El)
             emailList.push(results[i].email)
           }
+          // when send email button is clicked uses nodemailer send email to emails addresses in email list array
           $("#sendEmailBtn").on("click", function(event){
             event.preventDefault();
               emailList.toString();
@@ -126,6 +131,7 @@
       //delete ajax request when delete button for an event is clicked
       $(".delete-event-btn").on("click", function(event){
         event.preventDefault();
+        // capture eventID for delete button clicked
         var eventdeleteId=$(this).attr("data")
         $.ajax({
           method: "DELETE",
@@ -154,7 +160,7 @@
       url: "/api/event",
       data: newEvent
     }).then(function(data){
-        console.log(data)
+        console.log("event created")
       });
   $("#title").val("")
   $("#location").val("")
@@ -162,5 +168,4 @@
   $("#description").val("")
   $("#category").val("")
   location.reload();
-  showMessage();
 });

@@ -5,20 +5,23 @@
   <title>View Events</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Jquery Link -->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <!-- Google Font Link -->
   <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
   <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/e9366a06fb.js" crossorigin="anonymous"></script>
+  <!-- bootstrap link -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <!-- CSS style link -->
   <link href="stylesheets/style.css" rel="stylesheet">
 </head>
 
-<body>
-
+<!-- view events page nav bar -->
   <body class="members-page-body">
     <nav class="navbar navbar-default navbar-view-event">
-    <div class="container-fluid">
-      <div class="navbar-header">
+      <div class="container-fluid">
+        <div class="navbar-header">
         <a class="navbar-brand logo-text" href="">
           <i class="fas fa-users"></i> Assemble
         </a>
@@ -28,9 +31,10 @@
           Create an Event
         </a>
       </div>
-      </div>
-      </nav>
+    </div>
+  </nav>
 
+  <!-- filter section -->
  <form id="filter">
     <label for="category">Search Events by:</label><br>
     <select id="filters" name="filters">
@@ -63,12 +67,12 @@
     <input type="submit" id="search-location" value="Search By City">
 </form>
 
-
+<!-- section where events are displayed -->
 <div class="container">
   <div class="row" id="view-events-section">
   </div>
 </div>
-
+<!-- interested modal -->
 <div class="modal fade" id="interestedModal" tabindex="-1" role="dialog" aria-labelledby="interestedModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -123,15 +127,6 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
