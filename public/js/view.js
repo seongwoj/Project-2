@@ -3,31 +3,30 @@ hideFilters();
 getAllEvents();
 
 function hideFilters(){
-$("#filter-category").css("display", "none")
-$("#filter-time").css("display", "none")
-$("#filter-location").css("display", "none")
+  $("#filter-category").css("display", "none")
+  $("#filter-time").css("display", "none")
+  $("#filter-location").css("display", "none")
 }
 
 // display filters based on filter selection
 $("#filter").on("submit",function(event){
   event.preventDefault();
-if ($("#filters").val()=="Category"){
-  hideFilters();
-  $("#filter-category").css("display", "block")
-}else if($("#filters").val()=="Time"){
-  hideFilters();
-  $("#filter-time").css("display", "block")
-}else if($("#filters").val()=="Location"){
-  hideFilters();
-  $("#filter-location").css("display", "block")
-}else if($("#filters").val()=="Show-All"){
-  hideFilters();
-  getAllEvents();
+  if ($("#filters").val()=="Category"){
+    hideFilters();
+    $("#filter-category").css("display", "block")
+  }else if($("#filters").val()=="Time"){
+    hideFilters();
+    $("#filter-time").css("display", "block")
+  }else if($("#filters").val()=="Location"){
+    hideFilters();
+    $("#filter-location").css("display", "block")
+  }else if($("#filters").val()=="Show-All"){
+    hideFilters();
+    getAllEvents();
 }
-
 });
 
-// get all events function
+// get all events function and if interested button is clicked, display modul and post info to watcher table
 function getAllEvents(){
   $("#view-events-section").empty();
   $.ajax({
@@ -64,7 +63,7 @@ function getAllEvents(){
     });
 }
 
-
+// get all events based on category chosen and if interested button is clicked, display modal and post info to watcher table
 $("#search-category").on("click", function(event){
   $("#view-events-section").empty();
   event.preventDefault();
@@ -100,7 +99,7 @@ $("#search-category").on("click", function(event){
       });
     });
   });
-
+// get all events based on time inputed and if interested button is clicked, display modal and post info to watcher table
   $("#search-time").on("click", function(){
     $("#view-events-section").empty();
     event.preventDefault();
@@ -137,7 +136,7 @@ $("#search-category").on("click", function(event){
       });  
     });
   });
-
+// get all events based on location inputed and if interested button is clicked, display modal and post info to watcher table
   $("#search-location").on("click", function(){
     $("#view-events-section").empty();
     event.preventDefault();
@@ -175,7 +174,7 @@ $("#search-category").on("click", function(event){
     });
   });
 
-// append results to page
+// append results to page function
 function appendEvents(results){
   for(var i=0; i<results.length; i++){
     eventId=results[i].id
