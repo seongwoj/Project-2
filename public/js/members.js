@@ -95,13 +95,13 @@
           method: "GET",
           url: "/api/watcher/"+eventinterestedId,
         }).then(function(results){
+          console.log(results)
           for(var i=0; i<results.length; i++){
-            var h4El=$("<h4>")
-            h4El.text(results[i].name)
-            (".modal-body").append(h4El)
-            var h4El=$("<h4>")
-            h4El.text(results[i].email)
-            (".modal-body").append(h4El)
+            var pEl=$("<p>").text(results[i].name)
+            $(".modal-body").append(pEl)
+            // pEl2=$("<p>")
+            // pEl.text(results[i].email)
+            // (".modal-body").append(pEl)
           }
         });
       });

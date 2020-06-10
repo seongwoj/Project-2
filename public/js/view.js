@@ -1,3 +1,4 @@
+// hide filter options when page is loaded. Load all events when page is loaded
 hideFilters();
 getAllEvents();
 
@@ -7,7 +8,7 @@ $("#filter-time").css("display", "none")
 $("#filter-location").css("display", "none")
 }
 
-
+// display filters based on filter selection
 $("#filter").on("submit",function(event){
   event.preventDefault();
 if ($("#filters").val()=="Category"){
@@ -26,6 +27,7 @@ if ($("#filters").val()=="Category"){
 
 });
 
+// get all events function
 function getAllEvents(){
   $("#view-events-section").empty();
   $.ajax({
@@ -34,9 +36,34 @@ function getAllEvents(){
     }).then(function(results){
       console.log(results)
       appendEvents(results)
+      $(".interested-event-button").on("click", function(){
+        console.log("click")
+        var eventID=$(this).attr("data")
+        console.log(eventID)
+        $("#watcher-submit").submit(function(event){
+          event.preventDefault();
+          var newWatcher = {
+              name: $("#formNameInput").val(),
+              email: $("#formEmailInput").val(),
+              eventDay: $("#preferenceInput1").is(":checked"),
+              eventUpdate: $("#preferenceInput2").is(":checked"),
+              eventOrganizer: $("#preferenceInput3").is(":checked"),
+              eventFuture: $("#preferenceInput4").is(":checked"),
+              EventId: eventID
+          }
+          console.log(newWatcher)
+          $.ajax({
+              method: "POST",
+              url: "/api/watcher",
+              data: newWatcher
+          }).then(function(){
+              console.log("Watcher updated");
+              location.reload();
+          });
+        });
+      });
     });
 }
-
 
 $("#search-category").on("click", function(event){
   $("#view-events-section").empty();
@@ -46,8 +73,7 @@ $("#search-category").on("click", function(event){
       url: "api/event/"+$("#search-category-value").val()
     }).then(function(results){
       appendEvents(results)
-          console.log(results)
-      
+          
     });
   });
 
@@ -72,18 +98,6 @@ $("#search-category").on("click", function(event){
     }).then(function(results){
       console.log(results)
       appendEvents(results)  
-    });
-  });
-
-  $("#search-organizer").on("click", function(){
-    $("#view-events-section").empty();
-    $.ajax({
-      method: "GET",
-      url: "api/event/organizer/"+$("#search-organizer-value").val()
-    }).then(function(results){
-      console.log(results)
-      console.log("good")
-      // appendEvents(results)
     });
   });
 
@@ -114,27 +128,11 @@ function appendEvents(results){
     buttonEl1=$("<button type=button class=btn btn-primary data-toggle=modal data-target=#interestedModal>Interested</button>")
     buttonEl1.attr("class","interested-event-button").attr("data",eventId)
     $("#div"+[i]).append(buttonEl1)
+
+    
   }
 }
 
-// When submit button is clicked from interested modal, post request to insert new watcher to db
-$("#watcher-submit").submit(function(event){
-  event.preventDefault();
-  var newWatcher = {
-      name: $("#formNameInput").val(),
-      email: $("#formEmailInput").val(),
-      eventDay: $("#preferenceInput1").is(":checked"),
-      eventUpdate: $("#preferenceInput2").is(":checked"),
-      eventOrganizer: $("#preferenceInput3").is(":checked"),
-      eventFuture: $("#preferenceInput4").is(":checked")
-  }
-  $.ajax({
-      method: "POST",
-      url: "/api/watcher",
-      data: newWatcher
-  }).then(function(){
-      console.log("Watcher updated");
-  });
-});
+
 
 
