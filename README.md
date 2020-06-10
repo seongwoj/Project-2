@@ -1,6 +1,6 @@
 # Assemble
 
-Deployed here: [Heroku link]
+Deployed here: http://rocky-falls-68125.herokuapp.com/
 
 ## Description
 Assemble is a platform for quickly organizing public events from exercise groups to protests. 
