@@ -2,6 +2,7 @@
 const db = require("../models");
 const passport = require("../config/passport");
 const Sequelize = require('sequelize');
+const nodemailer = require("../config/middleware/nodemailer");
 const Op = Sequelize.Op;
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -150,5 +151,11 @@ module.exports = function(app) {
   //Post new watcher
   app.post("/api/watcher", (req, res) => {
     db.Watcher.create(req.body).then(results => res.json(results));
+  })
+
+  // Email Functionality
+  app.post("/api/email", (req, res) => {
+  nodemailer.send(req.body.to, req.body.subject, req.body.message)
+  res.send(true);
   })
 };

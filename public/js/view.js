@@ -58,7 +58,10 @@ function getAllEvents(){
               data: newWatcher
           }).then(function(){
               console.log("Watcher updated");
+<<<<<<< HEAD
               location.reload();
+=======
+>>>>>>> 17059adae6d84a5fc7b399ff21f2b30be2d538ec
           });
         });
       });
@@ -132,7 +135,10 @@ function appendEvents(results){
     
   }
 }
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> 17059adae6d84a5fc7b399ff21f2b30be2d538ec
